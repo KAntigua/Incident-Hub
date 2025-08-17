@@ -13,8 +13,8 @@ $plantilla = Plantilla1::aplicar();
             visualizar y gestionar incidencias ocurridas en el país.
             Selecciona tu rol para continuar.
         </p>
-        <a href="login_validador.php" class="btn btn-validador">Ingresar como Validador</a>
-        <a href="login_reportero.php" class="btn btn-reportero">Ingresar como Reportero</a>
+        <a href="login/login_validador.php" class="btn btn-validador">Ingresar como Validador</a>
+        <a href="login/login_reportero.php" class="btn btn-reportero">Ingresar como Reportero</a>
     </div>
 </div>
 

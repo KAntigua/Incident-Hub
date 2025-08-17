@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 require_once 'plantillas/plantilla1.php';
 $plantilla = Plantilla1::aplicar();
 ?>

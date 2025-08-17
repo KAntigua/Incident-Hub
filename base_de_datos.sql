@@ -86,5 +86,5 @@ CREATE TABLE IF NOT EXISTS correcciones (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 ) ENGINE=InnoDB;
 
-INSERT INTO usuarios (nombre, email, password, rol)
+INSERT IGNORE INTO usuarios (nombre, email, password, rol)
 VALUES ('Validador Principal', 'super@incidenthub.com', SHA2('validador123', 256), 'validador');

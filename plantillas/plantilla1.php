@@ -51,7 +51,7 @@ class Plantilla1 {
 
         <nav class="navbar navbar-expand-lg navbar-dark navbar-incident mb-4">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="/Incident-Hub/index.php">
+                <a class="navbar-brand fw-bold" href="../index.php">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i> Incident Hub
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarIncident">
@@ -59,9 +59,9 @@ class Plantilla1 {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarIncident">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="/../index.php">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Incident-Hub/login_reportero.php">Reportero</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Incident-Hub/login_validador.php">Validador</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../login/login_reportero.php">Reportero</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../login/login_validador.php">Validador</a></li>
                     </ul>
                 </div>
             </div>

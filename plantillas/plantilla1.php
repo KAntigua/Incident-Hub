@@ -51,7 +51,7 @@ class Plantilla1 {
 
         <nav class="navbar navbar-expand-lg navbar-dark navbar-incident mb-4">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="../Incident-Hub/index.php">
+                <a class="navbar-brand fw-bold" href="../../Incident-Hub/index.php">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i> Incident Hub
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarIncident">

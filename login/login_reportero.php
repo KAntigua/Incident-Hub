@@ -57,7 +57,7 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('../img/connor-betts-QK6Iwzd5MhE-unsplash.jpg') no-repeat center center/cover;
+                url('../img/anthony-maw-o1xcMHvkLVA-unsplash.jpg') no-repeat center center/cover;
     color: #fff;
 }
 

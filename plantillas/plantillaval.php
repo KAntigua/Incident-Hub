@@ -66,6 +66,12 @@ class PlantillaVal {
                         <li class="nav-item"><a class="nav-link" href="../../Incident-Hub/admin/validaciones.php">Validaciones</a></li>
                         <li class="nav-item"><a class="nav-link" href="../../Incident-Hub/admin/fusionar.php">Fusionar</a></li>
                         <li class="nav-item"><a class="nav-link" href="../../Incident-Hub/admin/estadisticas.php">Estadísticas</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning fw-bold" 
+                               href="../../../../Incident-Hub/index.php" 
+                               onclick="return confirm('¿Seguro que deseas cerrar sesión?');">Cerrar sesión
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

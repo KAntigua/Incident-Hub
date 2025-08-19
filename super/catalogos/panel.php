@@ -28,7 +28,7 @@ $plantilla = PlantillaVal::aplicar();
                     <i class="bi bi-building display-3 icon-style"></i>
                     <h5 class="card-title fw-bold">Municipios</h5>
                     <p class="card-text">Gestiona municipios vinculados a provincias.</p>
-                    <a href="municipios.php" class="btn custom-btn btn-sm">Ir a Municipios</a>
+                    <a href="municipios/municipios_ver.php" class="btn custom-btn btn-sm">Ir a Municipios</a>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@ $plantilla = PlantillaVal::aplicar();
                     <i class="bi bi-house-door-fill display-3 icon-style"></i>
                     <h5 class="card-title fw-bold">Barrios</h5>
                     <p class="card-text">Administra los barrios de cada municipio.</p>
-                    <a href="barrios.php" class="btn custom-btn btn-sm">Ir a Barrios</a>
+                    <a href="barrios/barrios_ver.php" class="btn custom-btn btn-sm">Ir a Barrios</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@ $plantilla = PlantillaVal::aplicar();
                     <i class="bi bi-exclamation-triangle-fill display-3 icon-style"></i>
                     <h5 class="card-title fw-bold">Tipos de Incidencias</h5>
                     <p class="card-text">Define y gestiona los tipos de incidencias.</p>
-                    <a href="tipos_incidencias.php" class="btn custom-btn btn-sm">Ir a Incidencias</a>
+                    <a href="tipos_incidencias/tipos_incidencias_ver.php" class="btn custom-btn btn-sm">Ir a Incidencias</a>
                 </div>
             </div>
         </div>

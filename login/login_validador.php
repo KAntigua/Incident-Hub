@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($usuario && hash('sha256', $password) === $usuario['password']) {
         $_SESSION['validador_id'] = $usuario['id'];
         $_SESSION['validador_nombre'] = $usuario['nombre'];
-        header('Location: ../../../super/index.php'); 
+        header('Location: /Incident-Hub/super/index.php'); 
         exit;
     } else {
         $error = "Usuario o contraseña incorrectos";

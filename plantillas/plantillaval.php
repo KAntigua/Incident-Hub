@@ -63,7 +63,7 @@ class PlantillaVal {
                 <div class="collapse navbar-collapse" id="navbarIncident">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/super/catalogos/panel.php">Catálogos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../Incident-Hub/admin/validaciones.php">Validaciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../super/validaciones/validaciones.php">Validaciones</a></li>
                         <li class="nav-item"><a class="nav-link" href="../../Incident-Hub/admin/fusionar.php">Fusionar</a></li>
                         <li class="nav-item"><a class="nav-link" href="../../Incident-Hub/admin/estadisticas.php">Estadísticas</a></li>
                     </ul>

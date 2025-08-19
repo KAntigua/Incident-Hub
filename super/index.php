@@ -28,7 +28,7 @@ $plantilla = PlantillaVal::aplicar();
                     <i class="bi bi-check2-circle display-3 icon-style"></i>
                     <h5 class="card-title fw-bold">Validaciones</h5>
                     <p class="card-text">Revisar y aprobar reportes y correcciones enviadas por los reporteros.</p>
-                    <a href="../../Incident-Hub/admin/validaciones.php" class="btn custom-btn btn-sm">Ir a Validaciones</a>
+                    <a href="../../Incident-Hub/super/validaciones/validaciones.php" class="btn custom-btn btn-sm">Ir a Validaciones</a>
                 </div>
             </div>
         </div>

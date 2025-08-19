@@ -6,9 +6,9 @@ session_start();
 $config = require __DIR__ . '/config_local.php';
 
 $client = new Google_Client();
-$client->setClientId($CLIENT_ID);
-$client->setClientSecret($CLIENT_SECRET);
-$client->setRedirectUri($REDIRECT_URI);
+$client->setClientId($config['google_client_id']);
+$client->setClientSecret($config['google_client_secret']);
+$client->setRedirectUri($config['redirect_uri']);
 $client->addScope(['email', 'profile']);
 
 if (!isset($_GET['code'])) {
@@ -54,5 +54,5 @@ $_SESSION['reportero_id']     = $usuarioId;
 $_SESSION['reportero_nombre'] = $usuario['nombre'] ?: $nombre;
 $_SESSION['reportero_email']  = $email;
 
-header('Location: ../Incident-Hub/reportero/index.php');
+header('Location: ../Incident-Hub/reportero/panel.php');
 exit;

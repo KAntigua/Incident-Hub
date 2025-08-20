@@ -12,6 +12,7 @@ $provincia_id = $_GET['provincia'] ?? '';
 $tipo_id = $_GET['tipo'] ?? '';
 $fecha_inicio = $_GET['fecha_inicio'] ?? date('Y-m-d', strtotime('-1 week'));
 $fecha_fin = $_GET['fecha_fin'] ?? date('Y-m-d');
+$titulo = $_GET['titulo'] ?? '';
 
 $query = "SELECT i.*, t.nombre AS tipo_nombre, p.nombre AS provincia_nombre, 
                  m.nombre AS municipio_nombre, b.nombre AS barrio_nombre
@@ -35,6 +36,10 @@ if ($provincia_id) {
 if ($tipo_id) { 
     $query .= " AND i.tipo_id = :tipo"; 
     $params[':tipo']=$tipo_id; 
+}
+if ($titulo) {
+    $query .= " AND i.titulo LIKE :titulo";
+    $params[':titulo'] = "%$titulo%";
 }
 
 $stmt = $pdo->prepare($query);
@@ -77,6 +82,10 @@ $tipos = $pdo->query("SELECT * FROM tipos_incidencias")->fetchAll(PDO::FETCH_ASS
         <div class="col-md-3">
             <label>Hasta</label>
             <input type="date" class="form-control" name="fecha_fin" value="<?= $fecha_fin ?>">
+        </div>
+        <div class="col-md-3">
+            <label>Título</label>
+            <input type="text" class="form-control" name="titulo" value="<?= htmlspecialchars($titulo) ?>">
         </div>
         <div class="col-md-12">
             <button class="btn custom-btn mt-2">Filtrar</button>

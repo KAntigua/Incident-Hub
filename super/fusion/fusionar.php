@@ -4,9 +4,6 @@ require_once '../../config.php';
 require_once '../../plantillas/plantillaval.php';
 $plantilla = PlantillaVal::aplicar();
 
-// ============================
-// PROCESAR FUSIÓN
-// ============================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
     $seleccionadas = $_POST['seleccionadas'] ?? [];
     if (count($seleccionadas) < 2) {
@@ -22,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
         die("<div class='alert alert-warning text-center'>No hay suficientes incidencias validadas para fusionar.</div>");
     }
 
-    // Elegir la más completa como base
     $base = null;
     $max_campos = -1;
     foreach ($incidencias as $i) {
@@ -36,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
         }
     }
 
-    // Fusionar las demás en la base
     foreach ($incidencias as $i) {
         if ($i['id'] == $base['id']) continue;
 
@@ -68,10 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
     echo "<div class='alert alert-success text-center mb-4'>Incidencias fusionadas correctamente. Base: {$base['titulo']}</div>";
 }
 
-// ============================
-// MOSTRAR INCIDENCIAS VALIDADAS
-// ============================
-// Unir con tablas relacionadas para mostrar nombres
 $sql = "SELECT i.*, t.nombre AS tipo_nombre, p.nombre AS provincia_nombre, m.nombre AS municipio_nombre
         FROM incidencias i
         LEFT JOIN tipos_incidencias t ON i.tipo_id = t.id

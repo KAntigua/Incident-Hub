@@ -62,10 +62,10 @@ class PlantillaVal {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarIncident">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/super/catalogos/panel.php">Catálogos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../super/validaciones/validaciones.php">Validaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../super/fusion/fusionar.php">Fusionar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../super/estadisticas/estadisticas.php">Estadísticas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Incident-Hub/super/catalogos/panel.php">Catálogos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Incident-Hub/super/validaciones/validaciones.php">Validaciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Incident-Hub/super/fusion/fusionar.php">Fusionar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Incident-Hub/super/estadisticas/estadisticas.php">Estadísticas</a></li>
                         <li class="nav-item">
                             <a class="nav-link text-warning fw-bold" 
                                href="../../../../Incident-Hub/index.php" 

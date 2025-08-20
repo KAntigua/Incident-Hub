@@ -50,7 +50,7 @@ $plantilla = PlantillaVal::aplicar();
                     <i class="bi bi-bar-chart-line-fill display-3 icon-style"></i>
                     <h5 class="card-title fw-bold">Estadísticas</h5>
                     <p class="card-text">Visualizar gráficos dinámicos por tipo de incidencia y análisis general.</p>
-                    <a href="../../Incident-Hub/super/estadisticas.php" class="btn custom-btn btn-sm">Ver Estadísticas</a>
+                    <a href="../../Incident-Hub/super/estadisticas/estadisticas.php" class="btn custom-btn btn-sm">Ver Estadísticas</a>
                 </div>
             </div>
         </div>

@@ -61,6 +61,7 @@ class PlantillaRep {
                         <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/registroincidencia.php">Registro de incidencias</a></li>
                         <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/misreportes.php">Mis Reportes</a></li>
                         <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/vistaalterna.php">Vista alterna</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/exportaruno.php">Exportar Reportes</a></li>
                         <li class="nav-item">
                             <a class="nav-link text-warning fw-bold" 
                                href="../../../../Incident-Hub/index.php" 

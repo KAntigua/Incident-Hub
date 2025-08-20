@@ -4,6 +4,9 @@ require_once '../config.php';
 require_once '../plantillas/plantillarep.php';
 $plantilla = PlantillaRep::aplicar();
 
+if (!isset($_SESSION['reportero_id'])) {
+    die("Debes iniciar sesión para ver registrar incidencias.");
+}
 
 $tipos_incidencias = $pdo->query("SELECT id, nombre FROM tipos_incidencias ORDER BY nombre")->fetchAll(PDO::FETCH_ASSOC);
 $provincias = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre")->fetchAll(PDO::FETCH_ASSOC);
@@ -67,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':perdida' => $datos['perdida'],
             ':link_social' => $datos['link'],
             ':foto' => $datos['foto'],
-            ':reportero_id' => $_SESSION['user_id'], 
+            ':reportero_id' => $_SESSION['reportero_id'], 
             ':fecha_ocurrencia' => $datos['fecha'],
             ':fecha_creacion' => date('Y-m-d H:i:s')
         ]);

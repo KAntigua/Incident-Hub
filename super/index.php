@@ -39,7 +39,7 @@ $plantilla = PlantillaVal::aplicar();
                     <i class="bi bi-arrows-collapse display-3 icon-style"></i>
                     <h5 class="card-title fw-bold">Fusionar</h5>
                     <p class="card-text">Unir múltiples reportes similares en uno solo de forma eficiente.</p>
-                    <a href="../../Incident-Hub/admin/fusionar.php" class="btn custom-btn btn-sm">Ir a Fusionar</a>
+                    <a href="../../Incident-Hub/super/fusion/fusionar.php" class="btn custom-btn btn-sm">Ir a Fusionar</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@ $plantilla = PlantillaVal::aplicar();
                     <i class="bi bi-bar-chart-line-fill display-3 icon-style"></i>
                     <h5 class="card-title fw-bold">Estadísticas</h5>
                     <p class="card-text">Visualizar gráficos dinámicos por tipo de incidencia y análisis general.</p>
-                    <a href="../../Incident-Hub/admin/estadisticas.php" class="btn custom-btn btn-sm">Ver Estadísticas</a>
+                    <a href="../../Incident-Hub/super/estadisticas.php" class="btn custom-btn btn-sm">Ver Estadísticas</a>
                 </div>
             </div>
         </div>

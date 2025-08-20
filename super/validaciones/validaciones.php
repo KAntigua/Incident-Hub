@@ -4,42 +4,6 @@ require_once '../../config.php';
 require_once '../../plantillas/plantillaval.php';
 $plantilla = PlantillaVal::aplicar();
 
-if(isset($_GET['aprobar_corr'])) {
-    $id = (int)$_GET['aprobar_corr'];
-
-    // Obtener los datos de la corrección
-    $stmt = $pdo->prepare("SELECT * FROM correcciones WHERE id = ?");
-    $stmt->execute([$id]);
-    $correc = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if($correc){
-        // Actualizar la incidencia con los valores sugeridos
-        $update = $pdo->prepare("
-            UPDATE incidencias 
-            SET muertos = ?, heridos = ?, provincia_id = ?, municipio_id = ?, 
-                lat = ?, lng = ?, perdida = ?
-            WHERE id = ?
-        ");
-        $update->execute([
-            $correc['muertos'],
-            $correc['heridos'],
-            $correc['provincia_id'],
-            $correc['municipio_id'],
-            $correc['latitud'],
-            $correc['longitud'],
-            $correc['perdida_estimado'],
-            $correc['incidencia_id']
-        ]);
-
-        // Marcar la corrección como aprobada
-        $pdo->prepare("UPDATE correcciones SET estado='aprobada', revisado_por=?, revisado_en=NOW() WHERE id = ?")
-            ->execute([$_SESSION['usuario_id'], $id]);
-    }
-
-    header("Location: validaciones.php");
-    exit;
-}
-
 if(isset($_GET['aprobar'])) {
     $id = (int)$_GET['aprobar'];
     $pdo->prepare("UPDATE incidencias SET validada = 1 WHERE id = ?")->execute([$id]);
@@ -54,7 +18,6 @@ if(isset($_GET['rechazar'])) {
     exit;
 }
 
-// Aprobar o rechazar correcciones
 if(isset($_GET['aprobar_corr'])) {
     $id = (int)$_GET['aprobar_corr'];
     $pdo->prepare("UPDATE correcciones SET estado='aprobada', revisado_por=?, revisado_en=NOW() WHERE id = ?")
@@ -71,7 +34,6 @@ if(isset($_GET['rechazar_corr'])) {
     exit;
 }
 
-// Incidencias pendientes
 $incidencias = $pdo->query("
     SELECT i.id, i.titulo, i.descripcion, i.fecha_ocurrencia, i.lat, i.lng, 
            i.muertos, i.heridos, i.perdida, i.link_social, i.foto, u.nombre AS reportero
@@ -81,7 +43,6 @@ $incidencias = $pdo->query("
     ORDER BY i.fecha_creacion DESC
 ")->fetchAll(PDO::FETCH_ASSOC);
 
-// Correcciones pendientes
 $correcciones = $pdo->query("
     SELECT c.id, c.incidencia_id, c.usuario_id, c.muertos, c.heridos, c.provincia_id, 
            c.municipio_id, c.perdida_estimado, c.latitud, c.longitud, u.nombre AS usuario_nombre, i.titulo AS incidencia_titulo
@@ -168,7 +129,6 @@ $correcciones = $pdo->query("
         <p class="mb-0 text-light">Aprobar o rechazar los reportes y sugerencias enviadas por los usuarios.</p>
     </div>
 
-    <!-- Incidencias pendientes -->
     <?php if(empty($incidencias)): ?>
         <div class="alert alert-info">No hay incidencias pendientes.</div>
     <?php else: ?>
@@ -219,7 +179,6 @@ $correcciones = $pdo->query("
         </div>
     <?php endif; ?>
 
-    <!-- Correcciones pendientes -->
     <?php if(!empty($correcciones)): ?>
         <div class="card glass-card shadow-sm border-0 p-4 mb-4">
             <h5 class="text-white mb-3">Correcciones Pendientes</h5>

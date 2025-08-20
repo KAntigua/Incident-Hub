@@ -4,7 +4,6 @@ require_once '../../config.php';
 require_once '../../plantillas/plantillaval.php';
 $plantilla = PlantillaVal::aplicar();
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
     $seleccionadas = $_POST['seleccionadas'] ?? [];
     if (count($seleccionadas) < 2) {
@@ -20,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
         die("<div class='alert alert-warning text-center'>No hay suficientes incidencias validadas para fusionar.</div>");
     }
 
-    
     $base = null;
     $max_campos = -1;
     foreach ($incidencias as $i) {
@@ -34,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
         }
     }
 
-    
     foreach ($incidencias as $i) {
         if ($i['id'] == $base['id']) continue;
 
@@ -65,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fusionar'])) {
 
     echo "<div class='alert alert-success text-center mb-4'>Incidencias fusionadas correctamente. Base: {$base['titulo']}</div>";
 }
-
 
 $sql = "SELECT i.*, t.nombre AS tipo_nombre, p.nombre AS provincia_nombre, m.nombre AS municipio_nombre
         FROM incidencias i
@@ -199,6 +195,6 @@ table tr:nth-child(even) {
 }
 
 img {
-    border-radius: 6px;
+    border-radius: 6px;
 }
 </style>

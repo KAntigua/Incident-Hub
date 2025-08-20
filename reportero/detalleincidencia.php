@@ -27,7 +27,6 @@ if (!$incidencia) {
     die("Incidencia no encontrada.");
 }
 
-// URL del mapa con lat/lng
 $lat = $incidencia['lat'];
 $lng = $incidencia['lng'];
 $map_url = "https://www.google.com/maps?q={$lat},{$lng}&hl=es;z=15&output=embed";

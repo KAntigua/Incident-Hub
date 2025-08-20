@@ -9,7 +9,7 @@ if (!isset($_SESSION['reportero_id'])) {
     die("Debes iniciar sesión para ver los reportes.");
 }
 
-// Obtener TODAS las incidencias aprobadas (de cualquier reportero)
+
 $stmt = $pdo->prepare("SELECT i.id, i.titulo, i.descripcion, i.lat, i.lng, i.muertos, i.heridos, i.perdida, 
                               i.link_social, i.foto, i.fecha_ocurrencia, i.fecha_creacion,
                               t.nombre AS tipo, p.nombre AS provincia, m.nombre AS municipio, b.nombre AS barrio,

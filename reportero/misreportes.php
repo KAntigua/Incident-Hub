@@ -1,16 +1,14 @@
 <?php
+session_start();
 require_once '../config.php';
 require_once '../plantillas/plantillarep.php';
 $plantilla = PlantillaRep::aplicar();
 
-session_start();
-
-
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['reportero_id'])) {
     die("Debes iniciar sesión para ver tus reportes.");
 }
 
-$reportero_id = $_SESSION['user_id'];
+$reportero_id = $_SESSION['reportero_id'];
 
 $stmt = $pdo->prepare("SELECT id, titulo, fecha_ocurrencia, fecha_creacion, validada 
                        FROM incidencias 

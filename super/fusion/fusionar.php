@@ -195,6 +195,6 @@ table tr:nth-child(even) {
 }
 
 img {
-    border-radius: 6px;
+    border-radius: 6px;
 }
 </style>

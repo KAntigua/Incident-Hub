@@ -59,7 +59,7 @@ class PlantillaRep {
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/panel.php">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/registroincidencia.php">Registro de incidencias</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/vista_alterna.php">Vista alterna</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../../../Incident-Hub/reportero/vistaalterna.php">Vista alterna</a></li>
                         <li class="nav-item">
                             <a class="nav-link text-warning fw-bold" 
                                href="../../../../Incident-Hub/index.php" 

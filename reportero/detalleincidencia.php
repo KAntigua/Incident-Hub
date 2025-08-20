@@ -3,37 +3,28 @@ require_once '../config.php';
 require_once '../plantillas/plantillarep.php';
 $plantilla = PlantillaRep::aplicar();
 
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    die("Debes iniciar sesión para ver los detalles.");
-}
-
-$reportero_id = $_SESSION['user_id'];
-
-// Obtener id de la incidencia desde GET
-if (!isset($_GET['id'])) {
-    die("No se especificó la incidencia.");
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die("ID de incidencia no válido.");
 }
 
 $id = (int)$_GET['id'];
 
-// Obtener la incidencia validada
-$stmt = $pdo->prepare("SELECT i.*, 
-                              t.nombre AS tipo, 
-                              p.nombre AS provincia, 
-                              m.nombre AS municipio, 
-                              b.nombre AS barrio
+$stmt = $pdo->prepare("SELECT i.id, i.titulo, i.descripcion, i.lat, i.lng, i.muertos, i.heridos, 
+                              i.perdida, i.link_social, i.foto, i.fecha_ocurrencia, i.fecha_creacion,
+                              t.nombre AS tipo, p.nombre AS provincia, m.nombre AS municipio, b.nombre AS barrio,
+                              u.nombre AS reportero
                        FROM incidencias i
                        JOIN tipos_incidencias t ON i.tipo_id = t.id
                        JOIN provincias p ON i.provincia_id = p.id
                        JOIN municipios m ON i.municipio_id = m.id
                        JOIN barrios b ON i.barrio_id = b.id
-                       WHERE i.id = ? AND i.reportero_id = ? AND i.validada = 1");
-$stmt->execute([$id, $reportero_id]);
+                       JOIN usuarios u ON i.reportero_id = u.id
+                       WHERE i.id = ?");
+$stmt->execute([$id]);
 $incidencia = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$incidencia) {
-    die("Incidencia no encontrada o no aprobada.");
+    die("Incidencia no encontrada.");
 }
 
 // URL del mapa con lat/lng
@@ -138,7 +129,7 @@ $map_url = "https://www.google.com/maps?q={$lat},{$lng}&hl=es;z=15&output=embed"
     </div>
 
     <div class="text-center mb-5">
-        <a href="panel.php" class="custom-btn">⬅ Volver al Inicio</a>
+        <a href="vistaalterna.php" class="custom-btn">Volver</a>
     </div>
 </div>
 </body>

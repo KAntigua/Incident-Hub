@@ -5,24 +5,24 @@ $plantilla = PlantillaRep::aplicar();
 
 session_start();
 
-// Verificar sesión
-if (!isset($_SESSION['user_id'])) {
-    die("Debes iniciar sesión para ver tus reportes.");
+if (!isset($_SESSION['reportero_id'])) {
+    die("Debes iniciar sesión para ver los reportes.");
 }
 
-$reportero_id = $_SESSION['user_id'];
-
-// Obtener incidencias aprobadas
-$stmt = $pdo->prepare("SELECT i.id, i.titulo, i.descripcion, i.lat, i.lng, i.muertos, i.heridos, i.perdida, i.link_social, i.foto, i.fecha_ocurrencia, i.fecha_creacion,
-                       t.nombre AS tipo, p.nombre AS provincia, m.nombre AS municipio, b.nombre AS barrio
+// Obtener TODAS las incidencias aprobadas (de cualquier reportero)
+$stmt = $pdo->prepare("SELECT i.id, i.titulo, i.descripcion, i.lat, i.lng, i.muertos, i.heridos, i.perdida, 
+                              i.link_social, i.foto, i.fecha_ocurrencia, i.fecha_creacion,
+                              t.nombre AS tipo, p.nombre AS provincia, m.nombre AS municipio, b.nombre AS barrio,
+                              u.nombre AS reportero
                        FROM incidencias i
                        JOIN tipos_incidencias t ON i.tipo_id = t.id
                        JOIN provincias p ON i.provincia_id = p.id
                        JOIN municipios m ON i.municipio_id = m.id
                        JOIN barrios b ON i.barrio_id = b.id
-                       WHERE i.reportero_id = ? AND i.validada = 1
+                       JOIN usuarios u ON i.reportero_id = u.id
+                       WHERE i.validada = 1
                        ORDER BY i.fecha_creacion DESC");
-$stmt->execute([$reportero_id]);
+$stmt->execute();
 $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
